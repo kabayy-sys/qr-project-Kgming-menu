@@ -33,11 +33,12 @@ export default function CustomerMenu() {
         setTableId('INVALID');
       }
     } else {
-      setTableId(null);
+      // Default fallback jika dibuka tanpa param (biar tidak 404/blank)
+      setTableId('REG-1');
     }
   }, []);
 
-  if (tableId === null || tableId === 'INVALID') {
+  if (tableId === 'INVALID') {
     return (
       <div className="max-w-[480px] mx-auto min-h-screen bg-[var(--bg)] text-[var(--ink)] flex flex-col items-center justify-center p-6 text-center">
         <div className="w-20 h-20 bg-red-100 text-red-500 rounded-full grid place-items-center text-3xl mb-4 font-bricolage">
@@ -51,6 +52,8 @@ export default function CustomerMenu() {
       </div>
     );
   }
+
+  const activeTableDisplay = tableId || 'REG-1';
 
   const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
   const totalPrice = products.reduce((sum, p) => sum + (cart[p.id] || 0) * p.price, 0);
@@ -89,7 +92,7 @@ export default function CustomerMenu() {
       .map(p => `- ${cart[p.id]}x ${p.name}`)
       .join('\n');
 
-    const msg = `*PESANAN BARU - ${tableId.replace('-', ' ')}*\n${lines}\n${note ? 'Catatan: ' + note + '\n' : ''}Total: ${formatRp(totalPrice)}`;
+    const msg = `*PESANAN BARU - ${activeTableDisplay.replace('-', ' ')}*\n${lines}\n${note ? 'Catatan: ' + note + '\n' : ''}Total: ${formatRp(totalPrice)}`;
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -105,7 +108,7 @@ export default function CustomerMenu() {
             <span className="font-extrabold text-lg tracking-tight font-bricolage">K GAMING</span>
           </div>
           <div className="text-sm font-semibold text-[var(--muted)] bg-[var(--surface)] px-3 py-1 rounded-full border border-[var(--line)] shadow-sm" id="tbl">
-            {tableId.replace('-', ' ')}
+            {activeTableDisplay.replace('-', ' ')}
           </div>
         </div>
         <h1 className="font-extrabold text-[34px] leading-tight tracking-tight font-bricolage mt-9">
