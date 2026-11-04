@@ -1,0 +1,3 @@
+✦ Selesai, Raken! Repository `qr-project-Kgming-menu` sudah dirancang lengkap dengan implementasi Next.js app router sesuai PRD dan design/motion referensi asli (Clean Matte Dark, tab kategori horizontal, sorting otomatis berdasarkan popularitas, floating cart, catatan bebas, checkout WhatsApp rapi, serta Admin Panel CRUD dengan upload foto dan 1-klik toggle sold out).
+
+✦ Lokasi project: `C:\Users\Infinix\UsersInfinixkgaming-menu` 🤍
