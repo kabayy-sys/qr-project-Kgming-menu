@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { INITIAL_PRODUCTS, Product, WA_NUMBER } from './data';
+import { INITIAL_PRODUCTS, Product, WA_NUMBER } from '@/app/data';
 
 const CATS = [
   { id: 'mk', name: 'Makanan' },

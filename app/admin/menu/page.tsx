@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { INITIAL_PRODUCTS, Product } from '../../data';
+import { INITIAL_PRODUCTS, Product } from '@/app/data';
 import { Plus, Pencil, Camera, Check } from 'lucide-react';
 
 const CATS = [
